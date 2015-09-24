@@ -1,0 +1,22 @@
+library(shiny)
+library(UsingR)
+data(cars)
+StoppingDistance <- function(Speed) 3.92*(Speed) - 17.5
+
+shinyServer(
+        function(input, output) {
+                output$inputValue <- renderPrint({input$Speed})
+                output$prediction <- renderPrint({StoppingDistance(input$Speed)})
+                output$CarsPlot <- renderPlot({
+                        plot(cars, xlab = "Speed (mph)", ylab = "Stopping distance (ft)",
+                             las = 1, xlim = c(0, 25))
+                        title(main = "Cars Data in R with Fitted Line")
+                        lines(lowess(cars$speed, cars$dist, f = 2/3, iter = 3), col = "green", lwd=4)
+                        nu <- input$nu
+                        lines(c(nu, nu), c(0, 100),col="red",lwd=2)
+                        Distance <- 3.92*(nu) - 17.5
+                        text(5, 100, paste("Speed = ", nu))
+                        text(5, 80, paste("Distance = ", round(Distance, 1)))
+                })
+})
+         

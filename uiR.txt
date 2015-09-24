@@ -1,0 +1,25 @@
+shinyUI(
+        pageWithSidebar(
+                # Application title
+                headerPanel("Speed Kills"),
+                
+                sidebarPanel(
+                        numericInput('Speed', 'Speed in mph', 10, min = 10, max = 25, step = 1),
+                        sliderInput('nu', 'Interactive Estimated Stopping Distance',value = 10, min = 0, max = 25, step = 1),
+                        h3('Documentation'),
+                        h4('This Shiny App takes cars data in R, fits a line to the data, and uses the resulting formula to allow users to interactively find an estimated stopping distance'),
+                        h5('Users can enter speed numerically or use the slider bar.  The output for the numerical input is in a box, the output for the slider is in the plot, with a corresponding line to reinforce visualization.'),
+                        h5 ('The formula does not produce valid outcomes for low speeds.')
+                ),
+                mainPanel(
+                        h3('Predicted Stopping Distance'),
+                        h4('You entered'),
+                        verbatimTextOutput("inputValue"),
+                        h4('Predicted Stopping Distance in Feet'),
+                        verbatimTextOutput("prediction"),
+                        plotOutput('CarsPlot')
+                        
+                        
+                )
+        )
+)

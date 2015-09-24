@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Speed Kills</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Speed Kills">
+  <meta name="author" content="Dave Porcaro">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Speed Kills</h1>
+    <h2>Shiny App to Interact with Speed and Stopping Distance Data</h2>
+    <p>Dave Porcaro<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Speeding and Automotive Safety</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>A total of 32,719 people died in motor vehicle crashes in 2013</li>
+<li>Contributing to the death toll are alcohol, speeding, lack of safety belt use, and other problematic driver behaviors.</li>
+<li>The cars data set provided a simple visualization to see that stopping distances increased with speed</li>
+<li>I have a teenager who routinely tells me, &quot;Dad, I get to drive soon.&quot;</li>
+</ol>
+
+<p>Information sourced from :</p>
+
+<p><a href="http://www.iihs.org/iihs/topics/t/general-statistics/fatalityfacts/overview-of-fatality-facts">http://www.iihs.org/iihs/topics/t/general-statistics/fatalityfacts/overview-of-fatality-facts</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>The cars data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>cars {datasets} from R Documentation</p>
+
+<p>Speed and Stopping Distances of Cars</p>
+
+<p>The data give the speed of cars and the distances taken to stop. Note that the data were recorded in the 1920s.</p>
+
+<p>A data frame with 50 observations on 2 variables.</p>
+
+<p>[,1]     speed   numeric     Speed (mph)</p>
+
+<p>[,2]     dist    numeric     Stopping distance (ft)</p>
+
+<p>A simple linear model produced a straightforward formula for relationship between speed and stopping distance, although the formula is very imprecise for low speeds.  </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>What the Shiny App does</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Provides two ways for my teemager to interact with the data</p>
+
+<ol>
+<li><p>First, Numeric Input.  Enter the speed in mph as a number and the app estimates the stopping distance</p></li>
+<li><p>Second, an interactive input using a slider bar integrated with the plot.  The user is able to slide to the spped input and read the estimated stopping distance on the plot.</p></li>
+</ol>
+
+<p>My focus for the project is on the Shiny App and Slidify, so I did not spend any time on optimizing the model.  The model is sufficient to ilustrate the point.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Data Plot and Fitted Line as shown in the Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The final learning point for the teenager is to show that the fitted line does not appear linear.  Lesson to keep:  The faster you go, the harder it is to stop.</p>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Speeding and Automotive Safety'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The cars data'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='What the Shiny App does'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Data Plot and Fitted Line as shown in the Shiny App'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

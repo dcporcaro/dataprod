@@ -1,0 +1,72 @@
+---
+title       : Speed Kills 
+subtitle    : Shiny App to Interact with Speed and Stopping Distance Data
+author      : Dave Porcaro
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap, shiny, interactive}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+--- 
+
+## Speeding and Automotive Safety
+
+1. A total of 32,719 people died in motor vehicle crashes in 2013
+2. Contributing to the death toll are alcohol, speeding, lack of safety belt use, and other problematic driver behaviors.
+3. The cars data set provided a simple visualization to see that stopping distances increased with speed
+4. I have a teenager who routinely tells me, "Dad, I get to drive soon."
+
+Information sourced from :
+
+http://www.iihs.org/iihs/topics/t/general-statistics/fatalityfacts/overview-of-fatality-facts
+
+--- 
+
+## The cars data
+
+cars {datasets}	from R Documentation
+
+Speed and Stopping Distances of Cars
+
+The data give the speed of cars and the distances taken to stop. Note that the data were recorded in the 1920s.
+
+A data frame with 50 observations on 2 variables.
+
+[,1]	 speed	 numeric	 Speed (mph)
+
+[,2]	 dist	 numeric	 Stopping distance (ft)
+
+A simple linear model produced a straightforward formula for relationship between speed and stopping distance, although the formula is very imprecise for low speeds.  
+
+---
+
+## What the Shiny App does
+
+Provides two ways for my teemager to interact with the data
+
+1. First, Numeric Input.  Enter the speed in mph as a number and the app estimates the stopping distance
+
+2. Second, an interactive input using a slider bar integrated with the plot.  The user is able to slide to the speed input and read the estimated stopping distance on the plot.
+
+My focus for the project is on the Shiny App and Slidify, so I did not spend any time on optimizing the model.  The model is sufficient to ilustrate the point.
+
+---
+
+## Data Plot and Fitted Line as shown in the Shiny App
+
+The final learning point for the teenager is to show that the fitted line does not appear linear.  Lesson to keep:  The faster you go, the harder it is to stop.
+
+```{r, echo = FALSE}
+plot(cars, xlab = "Speed (mph)", ylab = "Stopping distance (ft)",
+                             las = 1, xlim = c(0, 25))
+                        title(main = "Cars Data in R with Fitted Line")
+                        lines(lowess(cars$speed, cars$dist, f = 2/3, iter = 3), col = "green", lwd=4)
+```
+
+
+
+
+
+
